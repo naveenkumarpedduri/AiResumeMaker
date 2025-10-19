@@ -72,7 +72,7 @@ Ensure the response is structured, clear, and easy to display in a React app.
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("X-goog-api-key", "AIzaSyCTO2aoyZiNxBWD12Vg8cJozwm1iKKwvTg");
+    myHeaders.append("X-goog-api-key", "[Api Key]");
 
     const raw = JSON.stringify({
       "contents": [
@@ -108,16 +108,13 @@ Ensure the response is structured, clear, and easy to display in a React app.
    
   }
 
-
-  // AIzaSyCTO2aoyZiNxBWD12Vg8cJozwm1iKKwvTg
-
   function parseSections(text) {
     if (!text) return []
-    // Try to split by numbered sections like "1. Tailored Cover Letter"
+  
     const regex = /^(\d+\.\s*[A-Za-z].*)$/gim
     const matches = [...text.matchAll(regex)]
     if (matches.length === 0) {
-      // fallback: split by two newlines (paragraphs)
+   
       return [{ title: null, content: text }]
     }
     const sections = []
@@ -133,7 +130,7 @@ Ensure the response is structured, clear, and easy to display in a React app.
 
   function renderContentAsHtml(content) {
     if (!content) return null
-    // Split content into paragraphs by double newlines
+  
     const paragraphs = content.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean)
     return paragraphs.map((p, idx) => (
       <p key={idx} style={{ margin: '0 0 0.75rem' }}>{p.split('\n').map((line, i) => (
@@ -142,7 +139,7 @@ Ensure the response is structured, clear, and easy to display in a React app.
     ))
   }
 
-  // Style moved to Home.css
+  
 
   function openPrintWindow(htmlContent) {
     const newWindow = window.open('', '_blank', 'width=900,height=700')
@@ -241,7 +238,6 @@ Ensure the response is structured, clear, and easy to display in a React app.
     }
   }
 
-  // All styles moved to Home.css
 
   return (
     <div className="main-container">
